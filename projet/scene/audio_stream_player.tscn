@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv87ju3dot778"]
 
-[ext_resource type="AudioStream" uid="uid://cc5yx00ug61e2" path="res://asset/audio/ambiance.mp3" id="1_jlyyb"]
+[ext_resource type="AudioStream" uid="uid://db55olkr2567q" path="res://asset/audio/ambiance.ogg" id="1_jlyyb"]
 
 [sub_resource type="Animation" id="Animation_ok27u"]
 resource_name = "soundtrack"

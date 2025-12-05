@@ -82,7 +82,7 @@ size = Vector2(16, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(24, 615)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_fvtld")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -95,7 +95,7 @@ shape = SubResource("RectangleShape2D_ct4mp")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(1.33334, 0)
 scale = Vector2(1.33333, 1.33333)
-zoom = Vector2(5.5, 5.5)
+zoom = Vector2(10, 10)
 limit_left = 0
 limit_top = 0
 limit_right = 1152
@@ -105,6 +105,6 @@ limit_bottom = 639
 position = Vector2(-32, -820)
 scale = Vector2(1.33333, 1.33333)
 stream = ExtResource("3_s4jxa")
-volume_db = 20.893
+volume_db = 9.54
 pitch_scale = 3.0
 bus = &"step_sound"
