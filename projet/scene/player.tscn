@@ -162,7 +162,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -213,7 +213,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -224,7 +224,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_up",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -260,11 +260,10 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_fvtld")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(9.5367386e-07, 1.335144e-05)
-scale = Vector2(0.93750036, 0.93750036)
+position = Vector2(9.53674e-07, 1.33514e-05)
+scale = Vector2(0.9375, 0.9375)
 sprite_frames = SubResource("SpriteFrames_fvtld")
-animation = &"left_idle"
-frame_progress = 0.12276704
+animation = &"player_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 visible = false

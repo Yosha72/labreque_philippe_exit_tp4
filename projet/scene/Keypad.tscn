@@ -146,7 +146,7 @@ grow_vertical = 2
 text = "   enter   "
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.9122097, 0.6588035, 1.336277, 1)
+color = Color(0.91221, 0.658804, 1.33628, 1)
 
 [connection signal="pressed" from="Button_0" to="." method="_on_button_0_pressed"]
 [connection signal="pressed" from="Button_1" to="." method="_on_button_1_pressed"]

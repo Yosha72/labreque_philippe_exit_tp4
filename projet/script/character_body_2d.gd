@@ -29,27 +29,39 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact") and near_door != null:
 		near_door.get_node("Keypad").show()
 
-	get_input()
+	var direction = Input.get_vector("left","right","up","down")
+	velocity = direction * speed  # or max_speed, but pick one consistently
 	move_and_slide()
-	
-	var direction = Input.get_vector("left","right","up","down" )
-	velocity = direction * max_speed
-	move_and_slide()
-	
+
 	if direction.length() > 0:
 		last_direction = direction
 		play_walk_animation(direction)
+	else:
+		play_idle_animation(last_direction)
+
 	
 func play_walk_animation(direction):
+	if direction.x > 0:
+		$AnimatedSprite2D.play("player_right")
+	elif direction.x < 0:
+		$AnimatedSprite2D.play("player_left")
+		
+	if direction.y > 0:
+		$AnimatedSprite2D.play("player_down")
+	elif direction.y < 0:
+		$AnimatedSprite2D.play("player_up")
+		
+func play_idle_animation(direction):
 	if direction.x > 0:
 		$AnimatedSprite2D.play("right_idle")
 	elif direction.x < 0:
 		$AnimatedSprite2D.play("left_idle")
-		
-	if direction.y > 0:
+	elif direction.y > 0:
 		$AnimatedSprite2D.play("down_idle")
 	elif direction.y < 0:
 		$AnimatedSprite2D.play("up_idle")
+
+	
 	
 
 func _on_Door_area_entered(area: Area2D) -> void:
