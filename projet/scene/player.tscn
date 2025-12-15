@@ -255,7 +255,7 @@ size = Vector2(16, 16)
 [node name="player" type="Node"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(24, 615)
+position = Vector2(24, 613)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_fvtld")
 
@@ -264,7 +264,7 @@ position = Vector2(9.5367386e-07, 1.335144e-05)
 scale = Vector2(0.93750036, 0.93750036)
 sprite_frames = SubResource("SpriteFrames_fvtld")
 animation = &"left_idle"
-frame_progress = 0.24191462
+frame_progress = 0.12276704
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 visible = false
