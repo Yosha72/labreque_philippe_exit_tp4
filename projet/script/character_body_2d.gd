@@ -5,7 +5,7 @@ extends CharacterBody2D
 var near_door: Area2D = null
 
 func _ready() -> void:
-	$"./AnimatedSprite2D".play("idle")
+	$"./AnimatedSprite2D".play("down_idle")
 	
 
 
