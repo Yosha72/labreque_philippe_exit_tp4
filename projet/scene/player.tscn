@@ -263,8 +263,8 @@ script = ExtResource("1_fvtld")
 position = Vector2(9.5367386e-07, 1.335144e-05)
 scale = Vector2(0.93750036, 0.93750036)
 sprite_frames = SubResource("SpriteFrames_fvtld")
-animation = &"player_up"
-frame_progress = 0.14216986
+animation = &"left_idle"
+frame_progress = 0.24191462
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 visible = false
