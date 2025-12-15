@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://63vwrxu3clgt"]
+[gd_scene load_steps=9 format=3 uid="uid://63vwrxu3clgt"]
 
 [ext_resource type="Script" uid="uid://lba3ql01i4wd" path="res://script/character_body_2d.gd" id="1_fvtld"]
 [ext_resource type="Texture2D" uid="uid://bpjd2ddqrl7j5" path="res://asset/map/design_layer.png" id="2_ct4mp"]
@@ -12,18 +12,6 @@ region = Rect2(0, 192, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ie14"]
 atlas = ExtResource("2_ct4mp")
 region = Rect2(80, 208, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4jxa"]
-atlas = ExtResource("2_ct4mp")
-region = Rect2(48, 192, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
-atlas = ExtResource("2_ct4mp")
-region = Rect2(64, 192, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
-atlas = ExtResource("2_ct4mp")
-region = Rect2(32, 192, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fvtld"]
 animations = [{
@@ -40,46 +28,47 @@ animations = [{
 }, {
 "frames": [],
 "loop": true,
-"name": &"down",
+"name": &"down_idle",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s4jxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oh5ij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s4jxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ct4mp")
-}],
-"loop": true,
-"name": &"left",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s4jxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oh5ij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s4jxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ct4mp")
-}],
-"loop": true,
-"name": &"right",
-"speed": 10.0
 }, {
 "frames": [],
 "loop": true,
-"name": &"up",
+"name": &"left_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_interact",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"player_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"up_idle",
 "speed": 5.0
 }]
 
@@ -97,7 +86,7 @@ script = ExtResource("1_fvtld")
 position = Vector2(9.5367386e-07, 1.335144e-05)
 scale = Vector2(0.93750036, 0.93750036)
 sprite_frames = SubResource("SpriteFrames_fvtld")
-animation = &"left"
+animation = &"player_interact"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_ct4mp")
