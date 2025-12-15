@@ -12,7 +12,7 @@ config_version=5
 
 config/name="labreque_philippe_tp4"
 run/main_scene="uid://b1kdwb5w6nv3t"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="uid://cio4niyqbwqnq"
 config/icon="uid://cvy5lafiq3dq3"
@@ -66,6 +66,7 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

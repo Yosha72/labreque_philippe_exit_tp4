@@ -6,6 +6,9 @@ var near_door: Area2D = null
 
 func _ready() -> void:
 	$"./AnimatedSprite2D".play("idle")
+	
+
+
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

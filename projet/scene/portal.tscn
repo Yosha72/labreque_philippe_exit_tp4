@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjavgjmwxje6c"]
 
-[ext_resource type="Texture2D" uid="uid://mmegmqjkgh4c" path="res://asset/element_visuel_interactif/portal.png" id="1_0ahy5"]
+[ext_resource type="Texture2D" uid="uid://mmegmqjkgh4c" path="res://asset/map/portal.png" id="1_0ahy5"]
 [ext_resource type="Script" uid="uid://be47uxxjnd5ah" path="res://script/portal.gd" id="1_pno75"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0ahy5"]

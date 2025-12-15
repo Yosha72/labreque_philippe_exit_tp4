@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=4 uid="uid://b1kdwb5w6nv3t"]
 
 [ext_resource type="PackedScene" uid="uid://63vwrxu3clgt" path="res://scene/player.tscn" id="1_7ribo"]
-[ext_resource type="Texture2D" uid="uid://ded7laf7eutgt" path="res://asset/element_visuel_interactif/spritesheet_animation.png" id="1_jsva7"]
-[ext_resource type="Texture2D" uid="uid://bpjd2ddqrl7j5" path="res://asset/element_visuel_interactif/monochrome_tilemap_packed.png" id="2_7ribo"]
-[ext_resource type="Texture2D" uid="uid://crta7y7hpgskv" path="res://asset/element_visuel_interactif/fixe.png" id="2_rs0ig"]
+[ext_resource type="Texture2D" uid="uid://ded7laf7eutgt" path="res://asset/map/animated_tilemap.png" id="1_jsva7"]
+[ext_resource type="Texture2D" uid="uid://bpjd2ddqrl7j5" path="res://asset/map/design_layer.png" id="2_7ribo"]
+[ext_resource type="Texture2D" uid="uid://crta7y7hpgskv" path="res://asset/map/collision_layer.png" id="2_rs0ig"]
 [ext_resource type="PackedScene" uid="uid://bjavgjmwxje6c" path="res://scene/portal.tscn" id="4_7nx3f"]
 [ext_resource type="PackedScene" uid="uid://bv87ju3dot778" path="res://scene/audio_stream_player.tscn" id="4_cy3g0"]
 [ext_resource type="AudioStream" uid="uid://db55olkr2567q" path="res://asset/audio/ambiance.ogg" id="6_7ribo"]

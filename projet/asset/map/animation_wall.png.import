@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cshy3ya1djvul"
-path="res://.godot/imported/animation_wall.png-c0c8defc606b4edf965adacde6fdf27c.ctex"
+path="res://.godot/imported/animation_wall.png-92507efd9cfa20060ca68ed62e9af39e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/element_visuel_interactif/animation_wall.png"
-dest_files=["res://.godot/imported/animation_wall.png-c0c8defc606b4edf965adacde6fdf27c.ctex"]
+source_file="res://asset/map/animation_wall.png"
+dest_files=["res://.godot/imported/animation_wall.png-92507efd9cfa20060ca68ed62e9af39e.ctex"]
 
 [params]
 
