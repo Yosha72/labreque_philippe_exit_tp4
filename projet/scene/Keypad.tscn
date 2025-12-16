@@ -148,6 +148,10 @@ text = "   enter   "
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.91221, 0.658804, 1.33628, 1)
 
+[node name="sound_sucess" type="AudioStreamPlayer2D" parent="."]
+
+[node name="sound_error" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="Button_0" to="." method="_on_button_0_pressed"]
 [connection signal="pressed" from="Button_1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button_2" to="." method="_on_button_2_pressed"]

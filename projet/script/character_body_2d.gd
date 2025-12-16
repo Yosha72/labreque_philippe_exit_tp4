@@ -1,68 +1,58 @@
 extends CharacterBody2D
 
-var max_speed = 100
-var last_direction := Vector2(1,0)
-
-
-
 @export var speed := 100
 @onready var step_sound: AudioStreamPlayer2D = $step_sound
+var last_direction := Vector2(1,0)
 var near_door: Area2D = null
 
 func _ready() -> void:
-	$"./AnimatedSprite2D".play("down_idle")
-	
-
-
-
-func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
-
-	if Input.is_action_just_pressed("left") \
-	or Input.is_action_just_pressed("right") \
-	or Input.is_action_just_pressed("up") \
-	or Input.is_action_just_pressed("down"):
-		step_sound.play()
+	$AnimatedSprite2D.play("down_idle")
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("interact") and near_door != null:
-		near_door.get_node("Keypad").show()
-
 	var direction = Input.get_vector("left","right","up","down")
-	velocity = direction * speed  # or max_speed, but pick one consistently
+	velocity = direction * speed
 	move_and_slide()
 
+	# Jouer le son de pas en continu si on bouge
 	if direction.length() > 0:
+		if not step_sound.playing:
+			step_sound.play()
 		last_direction = direction
 		play_walk_animation(direction)
 	else:
+		if step_sound.playing:
+			step_sound.stop()
 		play_idle_animation(last_direction)
 
-	
-func play_walk_animation(direction):
-	if direction.x > 0:
-		$AnimatedSprite2D.play("player_right")
-	elif direction.x < 0:
-		$AnimatedSprite2D.play("player_left")
-		
-	if direction.y > 0:
-		$AnimatedSprite2D.play("player_down")
-	elif direction.y < 0:
-		$AnimatedSprite2D.play("player_up")
-		
-func play_idle_animation(direction):
-	if direction.x > 0:
-		$AnimatedSprite2D.play("right_idle")
-	elif direction.x < 0:
-		$AnimatedSprite2D.play("left_idle")
-	elif direction.y > 0:
-		$AnimatedSprite2D.play("down_idle")
-	elif direction.y < 0:
-		$AnimatedSprite2D.play("up_idle")
+	# Interaction avec une porte
+	if Input.is_action_just_pressed("interact") and near_door != null:
+		var keypad = near_door.get_node_or_null("Keypad")
+		if keypad:
+			keypad.show()
 
-	
-	
+func play_walk_animation(direction):
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			$AnimatedSprite2D.play("player_right")
+		else:
+			$AnimatedSprite2D.play("player_left")
+	else:
+		if direction.y > 0:
+			$AnimatedSprite2D.play("player_down")
+		else:
+			$AnimatedSprite2D.play("player_up")
+
+func play_idle_animation(direction):
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			$AnimatedSprite2D.play("right_idle")
+		else:
+			$AnimatedSprite2D.play("left_idle")
+	else:
+		if direction.y > 0:
+			$AnimatedSprite2D.play("down_idle")
+		else:
+			$AnimatedSprite2D.play("up_idle")
 
 func _on_Door_area_entered(area: Area2D) -> void:
 	near_door = area
