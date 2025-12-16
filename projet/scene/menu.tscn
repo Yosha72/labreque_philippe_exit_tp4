@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://kegmq2toxh14"]
+[gd_scene load_steps=10 format=3 uid="uid://kegmq2toxh14"]
 
 [ext_resource type="Script" uid="uid://2frm1hw8x4ym" path="res://autres/menu.gd" id="1_e5g8k"]
+[ext_resource type="Texture2D" uid="uid://0lkpthgei3k" path="res://asset/menu/bg.jpeg" id="2_pb5j1"]
 [ext_resource type="Texture2D" uid="uid://b17etkhswrp23" path="res://asset/menu/start_game_outline.png" id="2_xs5te"]
 [ext_resource type="Texture2D" uid="uid://cwrvr3lj14s1l" path="res://asset/menu/start_game_bold.png" id="3_vi6sp"]
 [ext_resource type="Texture2D" uid="uid://djage1bqk0yiu" path="res://asset/menu/options_outline.png" id="4_1qlln"]
 [ext_resource type="Texture2D" uid="uid://blia248bag3hw" path="res://asset/menu/options_bold.png" id="5_wd6lm"]
 [ext_resource type="Texture2D" uid="uid://drhl63afkf0i8" path="res://asset/menu/escape_outline.png" id="6_1qlln"]
 [ext_resource type="Texture2D" uid="uid://bd7hge6jr8wlh" path="res://asset/menu/escape_bold.png" id="7_wd6lm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fejx"]
+texture = ExtResource("2_pb5j1")
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -16,11 +20,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e5g8k")
+metadata/_edit_vertical_guides_ = [1042.0, 120.0, 576.0]
+metadata/_edit_horizontal_guides_ = [120.0, 528.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6fejx")
 
 [node name="button_manager" type="Control" parent="."]
 anchors_preset = 0
@@ -29,47 +36,40 @@ offset_bottom = 40.0
 
 [node name="play" type="TextureButton" parent="button_manager"]
 layout_mode = 0
-offset_left = 424.5
-offset_top = 278.0
-offset_right = 727.5
-offset_bottom = 323.0
-texture_normal = ExtResource("3_vi6sp")
+offset_left = 424.0
+offset_top = 296.0
+offset_right = 728.0
+offset_bottom = 341.0
+texture_normal = ExtResource("2_xs5te")
 texture_pressed = ExtResource("2_xs5te")
-texture_hover = ExtResource("2_xs5te")
+texture_hover = ExtResource("3_vi6sp")
+stretch_mode = 3
 
 [node name="options" type="TextureButton" parent="button_manager"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = 443.0
-offset_right = 330.0
-offset_bottom = 488.0
+offset_left = 464.0
+offset_top = 440.0
+offset_right = 688.0
+offset_bottom = 485.0
 grow_vertical = 0
-texture_normal = ExtResource("5_wd6lm")
+texture_normal = ExtResource("4_1qlln")
 texture_pressed = ExtResource("4_1qlln")
-texture_hover = ExtResource("4_1qlln")
+texture_hover = ExtResource("5_wd6lm")
+stretch_mode = 3
 
 [node name="escape" type="TextureButton" parent="button_manager"]
 layout_mode = 0
-offset_left = 120.0
+offset_left = 480.0
 offset_top = 120.0
-offset_right = 304.0
+offset_right = 672.0
 offset_bottom = 165.0
-texture_normal = ExtResource("7_wd6lm")
-texture_pressed = ExtResource("6_1qlln")
-texture_hover = ExtResource("6_1qlln")
-
-[node name="back" type="TextureButton" parent="button_manager"]
-layout_mode = 0
-offset_left = 848.0
-offset_top = 136.0
-offset_right = 1032.0
-offset_bottom = 181.0
 texture_normal = ExtResource("6_1qlln")
 texture_pressed = ExtResource("6_1qlln")
 texture_hover = ExtResource("7_wd6lm")
+stretch_mode = 3
 
 [connection signal="pressed" from="button_manager/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="button_manager/options" to="." method="_on_options_pressed"]

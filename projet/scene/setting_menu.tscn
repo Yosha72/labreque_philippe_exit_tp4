@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbhrkesfevajd"]
+[gd_scene load_steps=6 format=3 uid="uid://bbhrkesfevajd"]
 
 [ext_resource type="Script" uid="uid://lr0mplqndmkx" path="res://script/setting_menu.gd" id="1_i3den"]
+[ext_resource type="Texture2D" uid="uid://0lkpthgei3k" path="res://asset/menu/bg.jpeg" id="2_0tuof"]
+[ext_resource type="Texture2D" uid="uid://dk1db6y5q0mdv" path="res://asset/menu/setting_menu/X_outline.png" id="9_ldp7b"]
+[ext_resource type="Texture2D" uid="uid://chapc7y84v0xg" path="res://asset/menu/setting_menu/X_bold.png" id="10_0u5ak"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tymw1"]
+texture = ExtResource("2_0tuof")
+modulate_color = Color(1.3366789, 1.3366789, 1.3366789, 1)
 
 [node name="setting_menu" type="Control"]
 layout_mode = 3
@@ -11,12 +18,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i3den")
 
-[node name="menu" type="Control" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tymw1")
+
+[node name="button_manager" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="menu"]
+[node name="X" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 560.0
+offset_top = 120.0
+offset_right = 598.0
+offset_bottom = 165.0
+texture_normal = ExtResource("9_ldp7b")
+texture_pressed = ExtResource("10_0u5ak")
+texture_hover = ExtResource("9_ldp7b")
+stretch_mode = 3
+
+[connection signal="pressed" from="X" to="." method="_on_x_pressed"]
