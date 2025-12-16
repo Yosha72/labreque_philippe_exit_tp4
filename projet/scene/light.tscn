@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c2mah0nedhtbw" path="res://asset/effets/light_gradiant.png" id="1_esuvq"]
 
 [node name="light" type="PointLight2D"]
+scale = Vector2(1.00342, 0.970015)
 blend_mode = 2
 texture = ExtResource("1_esuvq")

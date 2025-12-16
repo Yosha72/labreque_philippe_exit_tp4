@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="labreque_philippe_tp4"
-run/main_scene="uid://b1kdwb5w6nv3t"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="uid://kegmq2toxh14"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="uid://cio4niyqbwqnq"
 config/icon="uid://cvy5lafiq3dq3"

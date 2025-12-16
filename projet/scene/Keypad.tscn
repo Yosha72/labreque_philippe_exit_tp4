@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bilrec7i5mddr"]
 
-[ext_resource type="Script" uid="uid://nqogyxpaj336" path="res://scene/keypad.gd" id="1_siitb"]
+[ext_resource type="Script" uid="uid://nqogyxpaj336" path="res://script/keypad.gd" id="1_siitb"]
 
 [node name="keypad" type="Control"]
 layout_mode = 3

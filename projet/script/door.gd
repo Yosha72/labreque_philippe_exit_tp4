@@ -19,7 +19,3 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if body.name == "player":
 		print("Le joueur est entré dans la zone")
 		get_node("/root/level_01/UI/Keypad").show()
-
-
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.

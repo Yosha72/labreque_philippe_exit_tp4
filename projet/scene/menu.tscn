@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://kegmq2toxh14"]
+[gd_scene load_steps=8 format=3 uid="uid://kegmq2toxh14"]
 
 [ext_resource type="Script" uid="uid://2frm1hw8x4ym" path="res://autres/menu.gd" id="1_e5g8k"]
+[ext_resource type="Texture2D" uid="uid://b17etkhswrp23" path="res://asset/menu/start_game_outline.png" id="2_xs5te"]
+[ext_resource type="Texture2D" uid="uid://cwrvr3lj14s1l" path="res://asset/menu/start_game_bold.png" id="3_vi6sp"]
+[ext_resource type="Texture2D" uid="uid://djage1bqk0yiu" path="res://asset/menu/options_outline.png" id="4_1qlln"]
+[ext_resource type="Texture2D" uid="uid://blia248bag3hw" path="res://asset/menu/options_bold.png" id="5_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://drhl63afkf0i8" path="res://asset/menu/escape_outline.png" id="6_1qlln"]
+[ext_resource type="Texture2D" uid="uid://bd7hge6jr8wlh" path="res://asset/menu/escape_bold.png" id="7_wd6lm"]
 
-[node name="menu" type="Control"]
+[node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,42 +17,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e5g8k")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="button_manager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="play" type="TextureButton" parent="button_manager"]
+layout_mode = 0
+offset_left = 424.5
+offset_top = 278.0
+offset_right = 727.5
+offset_bottom = 323.0
+texture_normal = ExtResource("3_vi6sp")
+texture_pressed = ExtResource("2_xs5te")
+texture_hover = ExtResource("2_xs5te")
+
+[node name="options" type="TextureButton" parent="button_manager"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 120.0
+offset_top = 443.0
+offset_right = 330.0
+offset_bottom = 488.0
+grow_vertical = 0
+texture_normal = ExtResource("5_wd6lm")
+texture_pressed = ExtResource("4_1qlln")
+texture_hover = ExtResource("4_1qlln")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-alignment = 1
+[node name="escape" type="TextureButton" parent="button_manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 304.0
+offset_bottom = 165.0
+texture_normal = ExtResource("7_wd6lm")
+texture_pressed = ExtResource("6_1qlln")
+texture_hover = ExtResource("6_1qlln")
 
-[node name="vide" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = " 
- 
- "
+[node name="back" type="TextureButton" parent="button_manager"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 136.0
+offset_right = 1032.0
+offset_bottom = 181.0
+texture_normal = ExtResource("6_1qlln")
+texture_pressed = ExtResource("6_1qlln")
+texture_hover = ExtResource("7_wd6lm")
 
-[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "PLAY"
-
-[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "( Setting )"
-
-[node name="escape" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Escape "
-
-[node name="vide2" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = " 
- 
- "
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/escape" to="." method="_on_escape_pressed"]
+[connection signal="pressed" from="button_manager/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="button_manager/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="button_manager/escape" to="." method="_on_escape_pressed"]
