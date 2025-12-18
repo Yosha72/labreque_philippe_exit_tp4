@@ -11,21 +11,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -316.0
-offset_right = -536.0
-offset_bottom = -276.0
+offset_left = -360.0
+offset_top = -292.0
+offset_right = -320.0
+offset_bottom = -252.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.41652653, 0.38882306)
+scale = Vector2(0.93908, 0.8766211)
 script = ExtResource("1_siitb")
 metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_top = -24.0
-offset_right = 40.0
-offset_bottom = -1.0
+offset_left = 34.075905
+offset_top = -27.37785
+offset_right = 74.075905
+offset_bottom = -4.3778496
 
 [node name="Button_0" type="Button" parent="."]
 layout_mode = 1
@@ -169,9 +170,13 @@ text = "Clear"
 color = Color(0.91221, 0.658804, 1.33628, 1)
 
 [node name="sound_sucess" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(96.42227, 190.30794)
+scale = Vector2(32.476677, 50.673313)
 stream = ExtResource("2_4bmcm")
 
 [node name="sound_error" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(96.42227, 190.30794)
+scale = Vector2(32.476677, 50.673313)
 stream = ExtResource("3_df4c0")
 
 [connection signal="pressed" from="Button_0" to="." method="_on_button_0_pressed"]

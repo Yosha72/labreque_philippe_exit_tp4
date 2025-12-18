@@ -1,49 +1,84 @@
-extends Node2D
+extends Area2D
 
-var width = 7
-var height = 7
-var maze = []
-var level = 1
+var locked: bool = true
+var teleport_cooldown: bool = false
+
+@onready var destination: Node2D = $destination
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	generate_maze()
-	draw_maze()
+	# Animation par défaut pour un portail verrouillé
+	if locked:
+		sprite.play("locked")  # ou "default" selon tes animations
+		sprite.modulate = Color(1.0, 0.3, 0.3)  # rouge pour verrouillé
 
-func generate_maze():
-	maze = []
-	for y in range(height):
-		maze.append([])
-		for x in range(width):
-			maze[y].append(1) # 1 = mur, 0 = chemin
-	carve_passage(1, 1)
+func try_unlock():
+	if locked:
+		locked = false
+		print("Portail déverrouillé !")
+		sprite.play("active")
+		
+		# Effet de transition de couleur
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color(0.5, 1.0, 0.5), 0.5)
+		
+		# Effet visuel supplémentaire (optionnel)
+		tween.set_parallel(true)
+		tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.3)
+		tween.set_parallel(false)
+		tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
 
-func carve_passage(x, y):
-	maze[y][x] = 0
-	var directions = [[1,0], [-1,0], [0,1], [0,-1]]
-	directions.shuffle()
-	for dir in directions:
-		var nx = x + dir[0]*2
-		var ny = y + dir[1]*2
-		if nx > 0 and ny > 0 and nx < width-1 and ny < height-1:
-			if maze[ny][nx] == 1:
-				maze[y + dir[1]][x + dir[0]] = 0
-				carve_passage(nx, ny)
+func _on_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("player"):
+		return
+	
+	if locked:
+		print("Portail verrouillé, entrez le code d'abord !")
+		# Effet visuel de rejet
+		var tween = create_tween()
+		tween.tween_property(sprite, "modulate", Color(1.5, 0.3, 0.3), 0.1)
+		tween.tween_property(sprite, "modulate", Color(1.0, 0.3, 0.3), 0.1)
+		return
+	
+	# Éviter la téléportation en boucle
+	if teleport_cooldown:
+		return
+	
+	teleport_cooldown = true
+	
+	# Effet de téléportation
+	print("Téléportation en cours...")
+	
+	# Fade out du joueur (optionnel)
+	if body.has_node("Sprite2D") or body.has_node("AnimatedSprite2D"):
+		var player_sprite = body.get_node_or_null("Sprite2D")
+		if not player_sprite:
+			player_sprite = body.get_node_or_null("AnimatedSprite2D")
+		
+		if player_sprite:
+			var tween = create_tween()
+			tween.tween_property(player_sprite, "modulate:a", 0.0, 0.3)
+			await tween.finished
+	
+	# Téléportation
+	body.global_position = destination.global_position
+	print("Téléportation réussie")
+	
+	# Fade in du joueur (optionnel)
+	if body.has_node("Sprite2D") or body.has_node("AnimatedSprite2D"):
+		var player_sprite = body.get_node_or_null("Sprite2D")
+		if not player_sprite:
+			player_sprite = body.get_node_or_null("AnimatedSprite2D")
+		
+		if player_sprite:
+			var tween = create_tween()
+			tween.tween_property(player_sprite, "modulate:a", 1.0, 0.3)
+	
+	# Réinitialiser le cooldown après un délai
+	await get_tree().create_timer(1.0).timeout
+	teleport_cooldown = false
 
-func draw_maze():
-	var tilemap = $TileMap
-	tilemap.clear()
-	for y in range(height):
-		for x in range(width):
-			if maze[y][x] == 1:
-				tilemap.set_cell(0, Vector2i(x,y), 1) # mur
-			else:
-				tilemap.set_cell(0, Vector2i(x,y), 0) # chemin
-
-func next_level():
-	level += 1
-	width += 2
-	height += 2
-	generate_maze()
-	draw_maze()
-	$player.position = Vector2(32, 32)
-	print("Niveau ", level, " généré !")
+func _on_body_exited(body: Node2D) -> void:
+	# Réinitialiser le cooldown si le joueur sort sans se téléporter
+	if body.is_in_group("player"):
+		teleport_cooldown = false

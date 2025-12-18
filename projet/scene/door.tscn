@@ -137,7 +137,7 @@ keypad_scene = ExtResource("2_psa10")
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_ljipc")
 autoplay = "default"
-frame_progress = 0.43388838
+frame_progress = 0.84753495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.5, 2.5)
@@ -149,5 +149,5 @@ disable_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_psa10")
 
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

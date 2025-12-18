@@ -46,5 +46,5 @@ func play_idle_animation(direction):
 		if direction.y > 0:
 			$AnimatedSprite2D.play("down_idle")
 		else:
-			$AnimatedSprite
+			$AnimatedSprite2D.play("up_idle")
 			
