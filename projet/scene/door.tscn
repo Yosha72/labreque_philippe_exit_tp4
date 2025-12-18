@@ -130,9 +130,7 @@ size = Vector2(50, 50)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_y5pye")
-correct_code = null
-keypad_scene = null
-game_over_scene = null
+correct_code = "7224"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3

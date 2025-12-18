@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://b1kdwb5w6nv3t"]
+[gd_scene load_steps=78 format=4 uid="uid://b1kdwb5w6nv3t"]
 
 [ext_resource type="Texture2D" uid="uid://ded7laf7eutgt" path="res://asset/map/animated_tilemap.png" id="1_jsva7"]
 [ext_resource type="Texture2D" uid="uid://bpjd2ddqrl7j5" path="res://asset/map/design_layer.png" id="2_7ribo"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://dyjao75m4pvs6" path="res://scene/light.tscn" id="13_wy8ax"]
 [ext_resource type="PackedScene" uid="uid://bilrec7i5mddr" path="res://scene/keypad.tscn" id="15_45uhs"]
 [ext_resource type="Texture2D" uid="uid://2nvnl1jwi0gu" path="res://asset/effets/smoke_fx_01.png" id="20_t2ca3"]
-[ext_resource type="PackedScene" uid="uid://bwe5383owfx4p" path="res://scene/game_over.tscn" id="21_67agk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1uwf"]
 atlas = ExtResource("2_7ribo")
@@ -1456,13 +1455,11 @@ speed_scale = 2.0
 [node name="Door" parent="." instance=ExtResource("8_7nx3f")]
 position = Vector2(40, 72)
 scale = Vector2(0.30930242, 0.30984455)
-correct_code = "7224"
-keypad_scene = ExtResource("15_45uhs")
-game_over_scene = ExtResource("21_67agk")
 
 [node name="portal" parent="." instance=ExtResource("4_7nx3f")]
 position = Vector2(40, 72)
 scale = Vector2(68.81587, -41.470688)
+keypad_scene = ExtResource("15_45uhs")
 
 [node name="AnimatedSprite2D" parent="portal" index="0"]
 position = Vector2(-141, -530)
@@ -1475,29 +1472,6 @@ shape = SubResource("RectangleShape2D_t2ca3")
 
 [node name="destination" parent="portal" index="2"]
 position = Vector2(15.577801, -12.731884)
-
-[node name="Door2" parent="." instance=ExtResource("8_7nx3f")]
-position = Vector2(1112, 534.00006)
-scale = Vector2(0.33638093, 0.33756116)
-correct_code = "6897"
-keypad_scene = ExtResource("15_45uhs")
-game_over_scene = ExtResource("21_67agk")
-
-[node name="portal2" parent="." instance=ExtResource("4_7nx3f")]
-position = Vector2(1112, 534)
-scale = Vector2(68.81587, -41.470688)
-
-[node name="AnimatedSprite2D" parent="portal2" index="0"]
-position = Vector2(-141.04303, -529.9888)
-sprite_frames = SubResource("SpriteFrames_a4bqk")
-frame_progress = 0.6739819
-
-[node name="CollisionShape2D" parent="portal2" index="1"]
-scale = Vector2(0.059999995, 0.05999999)
-shape = SubResource("RectangleShape2D_t2ca3")
-
-[node name="destination" parent="portal2" index="2"]
-position = Vector2(-3.502099, 9.982954)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -1594,7 +1568,5 @@ vertical_alignment = 1
 
 [connection signal="ready" from="TileMap/layer_design" to="TileMap/layer_collision" method="_on_layer_design_ready"]
 [connection signal="body_exited" from="portal" to="portal" method="_on_body_exited"]
-[connection signal="body_exited" from="portal2" to="portal2" method="_on_body_exited"]
 
 [editable path="portal"]
-[editable path="portal2"]

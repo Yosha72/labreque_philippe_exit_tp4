@@ -23,6 +23,20 @@ func try_unlock():
 		sprite.modulate = Color.GREEN
 		if sprite.sprite_frames.has_animation("active"):
 			sprite.play("active")
+			
+func try_open(code: String) -> bool:
+	# Ici tu définis le code correct pour déverrouiller le portail
+	var correct_code = "68"
+	
+	if code == correct_code:
+		try_unlock()
+		if keypad_instance:
+			keypad_instance.hide()
+		return true
+	else:
+		print("Code incorrect pour le portail")
+		return false
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
