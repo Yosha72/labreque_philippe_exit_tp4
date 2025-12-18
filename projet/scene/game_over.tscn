@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwe5383owfx4p"]
+
+[ext_resource type="Script" uid="uid://ofcqhx1n7p0v" path="res://script/game_over.gd" id="1_8uq5u"]
+[ext_resource type="Texture2D" uid="uid://15kngicuucka" path="res://asset/menu/game_over.jpg" id="2_mxr41"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_8uq5u")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton"]
+scale = Vector2(0.986486, 0.986486)
+texture = ExtResource("2_mxr41")
+
+[node name="try_again" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -72.5
+offset_right = 229.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 100
+text = "  Try Again  "
+
+[connection signal="pressed" from="try_again" to="." method="_on_try_again_pressed"]

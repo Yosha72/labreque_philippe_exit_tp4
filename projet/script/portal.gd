@@ -7,17 +7,18 @@ var teleport_cooldown: bool = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	# État visuel initial
 	if locked:
-		sprite.play("locked")
 		sprite.modulate = Color.RED
+		if sprite.sprite_frames.has_animation("locked"):
+			sprite.play("locked")
 
 func try_unlock():
 	if locked:
 		locked = false
 		print("Portail déverrouillé !")
-		sprite.play("active")
 		sprite.modulate = Color.GREEN
+		if sprite.sprite_frames.has_animation("active"):
+			sprite.play("active")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not locked and not teleport_cooldown:
