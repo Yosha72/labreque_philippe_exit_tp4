@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwujril7ir31s"]
+[gd_scene load_steps=23 format=3 uid="uid://bwujril7ir31s"]
 
 [ext_resource type="Script" uid="uid://dsfrkdpstg6po" path="res://script/door.gd" id="1_y5pye"]
 [ext_resource type="Texture2D" uid="uid://2nvnl1jwi0gu" path="res://asset/effets/smoke_fx_01.png" id="2_i7qj5"]
+[ext_resource type="PackedScene" uid="uid://bilrec7i5mddr" path="res://scene/Keypad.tscn" id="2_psa10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psa10"]
 atlas = ExtResource("2_i7qj5")
@@ -130,13 +131,13 @@ size = Vector2(50, 50)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_y5pye")
+keypad_scene = ExtResource("2_psa10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_ljipc")
 autoplay = "default"
-frame = 12
-frame_progress = 0.10122
+frame_progress = 0.43388838
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.5, 2.5)

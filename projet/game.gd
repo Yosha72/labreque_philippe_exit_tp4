@@ -10,21 +10,17 @@ func _ready():
 	draw_maze()
 
 func generate_maze():
-	# Initialise la grille avec des murs
 	maze = []
 	for y in range(height):
 		maze.append([])
 		for x in range(width):
 			maze[y].append(1) # 1 = mur, 0 = chemin
-	
-	# Point de départ
 	carve_passage(1, 1)
 
 func carve_passage(x, y):
 	maze[y][x] = 0
 	var directions = [[1,0], [-1,0], [0,1], [0,-1]]
 	directions.shuffle()
-	
 	for dir in directions:
 		var nx = x + dir[0]*2
 		var ny = y + dir[1]*2
@@ -49,4 +45,5 @@ func next_level():
 	height += 2
 	generate_maze()
 	draw_maze()
+	$player.position = Vector2(32, 32)
 	print("Niveau ", level, " généré !")

@@ -24,12 +24,6 @@ func _physics_process(_delta):
 			step_sound.stop()
 		play_idle_animation(last_direction)
 
-	# Interaction avec une porte
-	if Input.is_action_just_pressed("interact") and near_door != null:
-		var keypad = near_door.get_node_or_null("Keypad")
-		if keypad:
-			keypad.show()
-
 func play_walk_animation(direction):
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -52,11 +46,5 @@ func play_idle_animation(direction):
 		if direction.y > 0:
 			$AnimatedSprite2D.play("down_idle")
 		else:
-			$AnimatedSprite2D.play("up_idle")
-
-func _on_Door_area_entered(area: Area2D) -> void:
-	near_door = area
-
-func _on_Door_area_exited(area: Area2D) -> void:
-	if near_door == area:
-		near_door = null
+			$AnimatedSprite
+			
