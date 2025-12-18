@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bilrec7i5mddr"]
+[gd_scene load_steps=5 format=3 uid="uid://bilrec7i5mddr"]
 
 [ext_resource type="Script" uid="uid://nqogyxpaj336" path="res://script/keypad.gd" id="1_siitb"]
 [ext_resource type="AudioStream" uid="uid://cp21onlvgu1s1" path="res://asset/audio/sound_sucess.wav" id="2_4bmcm"]
 [ext_resource type="AudioStream" uid="uid://bkaqrihs3bsf0" path="res://asset/audio/sound_error.mp3" id="3_df4c0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4bmcm"]
 
 [node name="keypad" type="Control"]
 layout_mode = 3
@@ -11,15 +13,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -292.0
-offset_right = -320.0
-offset_bottom = -252.0
+offset_left = -224.0
+offset_top = -172.0
+offset_right = -184.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.93908, 0.8766211)
+scale = Vector2(2.374015, 2.2161179)
 script = ExtResource("1_siitb")
 metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(60.656723, 101.07765)
+scale = Vector2(119.20731, 198.54538)
+texture = SubResource("CanvasTexture_4bmcm")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -167,6 +174,7 @@ offset_bottom = 160.0
 text = "Clear"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.91221, 0.658804, 1.33628, 1)
 
 [node name="sound_sucess" type="AudioStreamPlayer2D" parent="."]

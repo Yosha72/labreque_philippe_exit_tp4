@@ -4,26 +4,23 @@ var entered_code: String = ""
 var max_code_length: int = 4  # Limite le nombre de chiffres
 
 @onready var display: Label = $Label
-@onready var sound_success: AudioStreamPlayer2D = $sound_sucess
+@onready var sound_success: AudioStreamPlayer2D = $sound_success
 @onready var sound_error: AudioStreamPlayer2D = $sound_error
 
-var door: Node
+var door: Node = null
 
 func _ready():
-	display.text = ""
-	# Afficher des underscores pour indiquer le nombre de chiffres attendus
-	display.text = "_ _ _ _"
+	# Affichage initial
+	update_display()
+	hide()  # Le keypad est caché au départ, la porte l’affiche avec show()
 
 func press_number(n: int):
-	# Limiter la longueur du code
 	if entered_code.length() >= max_code_length:
 		return
-	
 	entered_code += str(n)
 	update_display()
 
 func update_display():
-	# Afficher le code avec des underscores pour les chiffres manquants
 	var display_text := ""
 	for i in range(max_code_length):
 		if i < entered_code.length():
@@ -42,7 +39,6 @@ func press_ok():
 		if sound_success:
 			sound_success.play()
 		
-		# Cacher après un court délai
 		await get_tree().create_timer(1.0).timeout
 		hide()
 	else:
@@ -51,7 +47,6 @@ func press_ok():
 		if sound_error:
 			sound_error.play()
 		
-		# Réinitialiser après un court délai
 		await get_tree().create_timer(1.0).timeout
 		press_clear()
 
@@ -87,7 +82,7 @@ func flash_button(button: Button):
 	t.tween_property(button, "modulate", Color.YELLOW, 0.1)
 	t.tween_property(button, "modulate", Color.WHITE, 0.2)
 
-# Support du clavier physique (optionnel)
+# --- Support du clavier physique ---
 func _input(event):
 	if not visible:
 		return

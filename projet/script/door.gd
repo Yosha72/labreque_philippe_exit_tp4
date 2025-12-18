@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var correct_code: String = "7224"
-@export var keypad_scene: PackedScene
-@export var game_over_scene: PackedScene  # ← glisse ici ta scène Game Over dans l’inspecteur
+@export var correct_code: String = "6798"
+@export var keypad_scene: PackedScene = preload("res://scene/keypad.tscn")
+@export var game_over_scene: PackedScene = preload("res://scene/game_over.tscn")
 
 var is_open: bool = false
 var keypad_instance: Control
@@ -17,7 +17,7 @@ func try_open(code: String) -> bool:
 	else:
 		failed_attempts += 1
 		print("Code incorrect ! Tentative n°", failed_attempts)
-		
+
 		if failed_attempts >= 3:
 			game_over()
 		return false
@@ -35,8 +35,13 @@ func open_door():
 
 func game_over():
 	print("Game Over !")
+	
+	# Attendre 1 seconde avant de changer de scène
+	await get_tree().create_timer(1.0).timeout
+	
 	if game_over_scene:
 		get_tree().change_scene_to_packed(game_over_scene)
+
 
 func show_keypad(player: Node2D):
 	if not keypad_instance and keypad_scene:
